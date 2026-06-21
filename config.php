@@ -7,7 +7,6 @@ ini_set('log_errors', '1');
 // ini_set('error_log', '/var/log/itsz_php_errors.log'); // Állítsd be a szerveren
 
 // ── Adatbázis beállítások ──────────────────────────────────
-// FONTOS: production-on ne root/üres jelszóval futtasd!
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'itsz_gyor');
 define('DB_USER', 'root');
