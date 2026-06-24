@@ -277,6 +277,11 @@ if ($fav): ?>
   }
   @media(max-width:600px){
     #kepviselok > div{grid-template-columns:1fr 1fr;}
+    /* MOBILON KISEBB HERO PADDING ÉS MAGASSÁG */
+    #fooldal { padding: 60px 5vw 30px; min-height: 90vh; }
+    .hero-logo-wrap { margin-bottom: 1rem; }
+    .hero-logo { width: 120px; height: 120px; }
+    .scroll-hint { margin-top: 2rem; }
   }
   @media(max-width:440px){
     #kepviselok > div{grid-template-columns:1fr;}
@@ -403,13 +408,14 @@ if ($fav): ?>
     <?php if (!empty($social_links)): ?><li><a href="#kovesd">Közösség</a></li><?php endif; ?>
     <li><a href="#kapcsolat">Kapcsolat</a></li>
   </ul>
+  <!-- Jobb oldali blokk: hamburger, témaváltó, Csatlakozz! -->
   <div style="display:flex;align-items:center;gap:.75rem;">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Világos/sötét" style="width:38px;height:38px;border-radius:10px;border:1.5px solid var(--border);background:var(--card-bg);color:var(--white);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">🌙</button>
     <a href="<?= htmlspecialchars($join['join_url'] ?? '#') ?>" class="nav-cta" target="_blank">Csatlakozz!</a>
   </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -419,9 +425,9 @@ if ($fav): ?>
   <?php if (!empty($gallery)): ?><a href="#kepek" onclick="closeMenu()">Képek</a><?php endif; ?>
   <?php if (!empty($social_links)): ?><a href="#kovesd" onclick="closeMenu()">Közösség</a><?php endif; ?>
   <a href="#kapcsolat" onclick="closeMenu()">Kapcsolat</a>
-  <div style="display:flex;align-items:center;gap:.75rem;">
-    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Világos/sötét" style="width:38px;height:38px;border-radius:10px;border:1.5px solid var(--border);background:var(--card-bg);color:var(--white);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">🌙</button>
+  <div style="display:flex;align-items:center;justify-content:flex-end;gap:.75rem;width:100%;">
     <a href="<?= htmlspecialchars($join['join_url'] ?? '#') ?>" class="nav-cta" target="_blank">Csatlakozz!</a>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Világos/sötét" style="width:38px;height:38px;border-radius:10px;border:1.5px solid var(--border);background:var(--card-bg);color:var(--white);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">🌙</button>
   </div>
 </div>
 
