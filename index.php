@@ -492,10 +492,11 @@ if ($fav): ?>
 <section id="kepviselok" style="border-top:1px solid var(--border);">
   <div class="section-label">Képviseletek</div>
   <h2 class="section-title reveal">Képviselőink</h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:2.5rem;">
+  <!-- FLEXBOX + KÖZÉPRE IGAZÍTÁS -->
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;margin-top:2.5rem;">
     <?php foreach ($representatives as $rep): ?>
-    <div class="representative-card reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
-      <!-- CSAK A PROFILKÉPRE TETTÜNK LINKET -->
+    <div class="representative-card reveal" style="flex:0 0 280px;max-width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <!-- PROFILKÉP -->
       <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:var(--card-bg);border:2px solid var(--border);margin-bottom:1.5rem;flex-shrink:0;">
         <?php if ($rep['link_url']): ?>
           <a href="<?= htmlspecialchars($rep['link_url']) ?>" target="_blank" style="display:block;width:100%;height:100%;">
@@ -528,19 +529,16 @@ if ($fav): ?>
       ?>
       <?php if ($has_extra_text || $has_content_img): ?>
       <div style="width:100%;margin-top:1rem;padding:1rem;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);">
-
         <?php if ($has_content_img): ?>
           <img src="<?= UPLOAD_URL . htmlspecialchars($rep['content_filename']) ?>?v=<?= time() ?>"
                style="width:100%;border-radius:12px;margin-bottom:1rem;"
                alt="Extra kép">
         <?php endif; ?>
-
         <?php $extra_clean = trim(strip_tags($rep['extra_text'] ?? '')); if ($has_extra_text): ?>
           <div style="color:var(--text-muted);line-height:1.7;text-align:left;">
             <?= $rep['extra_text'] ?>
           </div>
         <?php endif; ?>
-
       </div>
       <?php endif; ?>
     </div>
